@@ -52,7 +52,7 @@ export async function sendWaitlistConfirmation({
             <!-- Launch date callout -->
             <div style="margin:32px 0;background:linear-gradient(135deg,#0f2a44 0%,#091b2e 100%);border-radius:12px;padding:28px 32px;text-align:center;">
               <p style="margin:0 0 4px;font-size:13px;color:#94a3b8;text-transform:uppercase;letter-spacing:0.1em;">Launching</p>
-              <p style="margin:0;font-size:32px;font-weight:800;color:#ffffff;">1 August 2026</p>
+              <p style="margin:0;font-size:32px;font-weight:800;color:#ffffff;">1 July 2026</p>
             </div>
 
             <!-- What to expect -->

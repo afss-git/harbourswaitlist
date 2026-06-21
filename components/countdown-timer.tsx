@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const LAUNCH = new Date("2026-08-01T00:00:00Z").getTime();
+const LAUNCH = new Date("2026-07-01T00:00:00Z").getTime();
 
 function pad(n: number) {
   return String(n).padStart(2, "0");

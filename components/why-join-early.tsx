@@ -7,7 +7,7 @@ const PERKS = [
   {
     icon: ArrowUpRight,
     title: "Priority access",
-    desc: "Be among the first to use Harbours360 when the platform opens on 1 August 2026.",
+    desc: "Be among the first to use Harbours360 when the platform opens on 1 July 2026.",
   },
   {
     icon: Star,
@@ -56,7 +56,7 @@ export default function WhyJoinEarly() {
           </h2>
           <p className="mt-4 text-lg text-[#64748b] leading-relaxed">
             Members who join before launch receive a head start when the platform
-            opens on 1 August 2026.
+            opens on 1 July 2026.
           </p>
         </div>
 

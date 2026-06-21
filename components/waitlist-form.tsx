@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { CheckCircle, Loader2, AlertCircle } from "lucide-react";
+import { CheckCircle, Loader2, AlertCircle, Mail } from "lucide-react";
 
 type Role = "buyer" | "seller" | "both";
 
@@ -21,14 +21,19 @@ export default function WaitlistForm() {
   const [successName, setSuccessName] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isDuplicate, setIsDuplicate] = useState(false);
+  const [confirming, setConfirming] = useState(false);
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!role) {
       setError("Please select whether you are a Buyer, Seller, or Both.");
       return;
     }
     setError(null);
+    setConfirming(true);
+  }
+
+  async function confirmAndSend() {
     setLoading(true);
     try {
       const res = await fetch("/api/waitlist", {
@@ -38,6 +43,7 @@ export default function WaitlistForm() {
       });
       const data = await res.json();
       if (!res.ok) {
+        setConfirming(false);
         if (data.error === "duplicate") {
           setIsDuplicate(true);
           setError(data.message);
@@ -49,6 +55,7 @@ export default function WaitlistForm() {
       setSuccessName(name.split(" ")[0]);
       setSuccess(true);
     } catch {
+      setConfirming(false);
       setError("Network error. Please check your connection and try again.");
     } finally {
       setLoading(false);
@@ -67,7 +74,7 @@ export default function WaitlistForm() {
         <p className="text-[#94a3b8] text-sm leading-relaxed">
           We have sent a confirmation to your inbox. We will be in touch with your
           access details when Harbours360 opens on{" "}
-          <strong className="text-[#0ea5e9]">1 August 2026</strong>.
+          <strong className="text-[#0ea5e9]">1 July 2026</strong>.
         </p>
       </div>
     );
@@ -145,20 +152,43 @@ export default function WaitlistForm() {
         </div>
       )}
 
-      <button
-        type="submit"
-        disabled={loading}
-        className="w-full bg-[#0ea5e9] hover:bg-[#0284c7] disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold text-base py-4 rounded-xl transition-all duration-200 hover:shadow-xl hover:shadow-[#0ea5e9]/30 active:scale-[0.98] flex items-center justify-center gap-2"
-      >
-        {loading ? (
-          <>
-            <Loader2 className="w-5 h-5 animate-spin" />
-            Submitting
-          </>
-        ) : (
-          "Join the waitlist"
-        )}
-      </button>
+      {/* Email confirmation prompt — appears after first click */}
+      {confirming ? (
+        <div className="bg-white/5 border border-[#0ea5e9]/25 rounded-xl p-5 space-y-4">
+          <div className="flex items-center gap-2.5">
+            <Mail className="w-4 h-4 text-[#0ea5e9] flex-shrink-0" />
+            <p className="text-sm text-[#cbd5e1]">Please confirm this is your email address:</p>
+          </div>
+          <div className="bg-[#0f2a44] border border-[#0ea5e9]/30 rounded-lg px-4 py-3 text-[#0ea5e9] font-medium text-center text-sm tracking-wide break-all">
+            {email.trim()}
+          </div>
+          <div className="grid grid-cols-2 gap-3 pt-1">
+            <button
+              type="button"
+              onClick={() => setConfirming(false)}
+              className="border border-white/20 text-[#94a3b8] hover:text-white hover:border-white/40 py-3 rounded-xl text-sm font-medium transition-all"
+            >
+              Edit email
+            </button>
+            <button
+              type="button"
+              onClick={confirmAndSend}
+              disabled={loading}
+              className="bg-[#0ea5e9] hover:bg-[#0284c7] disabled:opacity-60 text-white font-semibold text-sm py-3 rounded-xl transition-all flex items-center justify-center gap-2"
+            >
+              {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Yes, join waitlist"}
+            </button>
+          </div>
+        </div>
+      ) : (
+        <button
+          type="submit"
+          disabled={loading}
+          className="w-full bg-[#0ea5e9] hover:bg-[#0284c7] disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold text-base py-4 rounded-xl transition-all duration-200 hover:shadow-xl hover:shadow-[#0ea5e9]/30 active:scale-[0.98] flex items-center justify-center gap-2"
+        >
+          Join the waitlist
+        </button>
+      )}
 
       <p className="text-center text-xs text-[#64748b]">
         We will only contact you about Harbours360. You can unsubscribe at any time.

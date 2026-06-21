@@ -40,7 +40,7 @@ export default function SecondCta() {
         </h2>
         <p className="text-lg text-[#94a3b8] mb-10 leading-relaxed">
           Join the waitlist and we will notify you the moment Harbours360 opens on
-          1 August 2026.
+          1 July 2026.
         </p>
 
         {done ? (

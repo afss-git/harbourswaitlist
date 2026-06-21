@@ -24,33 +24,25 @@ export default function Footer() {
             </div>
             <p className="text-sm text-[#64748b] leading-relaxed">
               A trusted marketplace for maritime and industrial asset transactions
-              across Africa. Launching 1 August 2026.
+              across Africa. Launching 1 July 2026.
             </p>
           </div>
 
-          {/* Links & Social */}
-          <div className="flex flex-col sm:flex-row gap-8">
-            <div className="flex flex-col gap-2">
-              <p className="text-xs font-semibold text-[#475569] uppercase tracking-wider mb-1">Legal</p>
-              <a href="#" className="text-sm text-[#64748b] hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="text-sm text-[#64748b] hover:text-white transition-colors">Terms of Service</a>
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <p className="text-xs font-semibold text-[#475569] uppercase tracking-wider mb-1">Contact</p>
-              <a href="mailto:info@harbours360.com" className="text-sm text-[#64748b] hover:text-white transition-colors flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5" />
-                info@harbours360.com
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-sm text-[#64748b] hover:text-white transition-colors flex items-center gap-2">
-                <Linkedin className="w-3.5 h-3.5" />
-                LinkedIn
-              </a>
-              <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="text-sm text-[#64748b] hover:text-white transition-colors flex items-center gap-2">
-                <Twitter className="w-3.5 h-3.5" />
-                X / Twitter
-              </a>
-            </div>
+          {/* Contact */}
+          <div className="flex flex-col gap-2">
+            <p className="text-xs font-semibold text-[#475569] uppercase tracking-wider mb-1">Contact</p>
+            <a href="mailto:info@harbours360.com" className="text-sm text-[#64748b] hover:text-white transition-colors flex items-center gap-2">
+              <Mail className="w-3.5 h-3.5" />
+              info@harbours360.com
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-sm text-[#64748b] hover:text-white transition-colors flex items-center gap-2">
+              <Linkedin className="w-3.5 h-3.5" />
+              LinkedIn
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="text-sm text-[#64748b] hover:text-white transition-colors flex items-center gap-2">
+              <Twitter className="w-3.5 h-3.5" />
+              X / Twitter
+            </a>
           </div>
         </div>
 

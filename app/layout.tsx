@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Harbours360 | Join the waitlist, launching 1 August 2026",
+  title: "Harbours360 | Join the waitlist, launching 1 July 2026",
   description:
     "Harbours360 is a verified marketplace for buying and selling maritime and industrial assets across Africa, with payments protected from offer to delivery. Join the waitlist for early access.",
   keywords: [
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "maritime industry Africa",
   ],
   openGraph: {
-    title: "Harbours360, launching 1 August 2026",
+    title: "Harbours360, launching 1 July 2026",
     description:
       "A verified marketplace for maritime and industrial assets across Africa. Join the waitlist for early access.",
     siteName: "Harbours360",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Harbours360, launching 1 August 2026",
+    title: "Harbours360, launching 1 July 2026",
     description:
       "A verified marketplace for maritime and industrial assets across Africa.",
   },

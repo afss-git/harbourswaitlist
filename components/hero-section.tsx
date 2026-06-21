@@ -34,7 +34,7 @@ export default function HeroSection() {
           >
             <div className="inline-flex items-center gap-2 border border-white/15 bg-white/5 text-[#cbd5e1] text-xs font-medium px-3.5 py-1.5 rounded-full mb-6 tracking-wide">
               <span className="w-1.5 h-1.5 bg-[#0ea5e9] rounded-full" />
-              Launching 1 August 2026
+              Launching 1 July 2026
             </div>
 
             <h1 className="text-[2.2rem] sm:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.1] tracking-tight">
@@ -79,7 +79,7 @@ export default function HeroSection() {
                 <CountdownTimer />
                 <div className="mt-8 inline-flex items-center gap-2.5 border border-white/10 bg-white/5 rounded-full px-5 py-2.5 text-xs text-[#94a3b8]">
                   <span className="w-1.5 h-1.5 bg-[#0ea5e9] rounded-full animate-pulse" />
-                  1 August 2026
+                  1 July 2026
                 </div>
               </div>
             </div>

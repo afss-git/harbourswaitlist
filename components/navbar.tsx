@@ -29,7 +29,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl overflow-hidden bg-[#0f2a44] flex items-center justify-center flex-shrink-0">
+          <div className="w-9 h-9 rounded-xl overflow-hidden bg-white flex items-center justify-center flex-shrink-0 shadow-sm">
             <Image
               src="/logo-icon.png"
               alt="Harbours360"
