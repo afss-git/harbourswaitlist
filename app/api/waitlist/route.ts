@@ -45,12 +45,14 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Something went wrong. Please try again." }, { status: 500 });
   }
 
-  // fire-and-forget confirmation email (non-blocking)
-  sendWaitlistConfirmation({
-    name: name.trim(),
-    email: email.trim().toLowerCase(),
-    role: role as "buyer" | "seller" | "both",
-  }).catch((err) => console.error("Resend error:", err));
+  // fire-and-forget welcome email — only runs if RESEND_API_KEY is configured
+  if (process.env.RESEND_API_KEY) {
+    sendWaitlistConfirmation({
+      name: name.trim(),
+      email: email.trim().toLowerCase(),
+      role: role as "buyer" | "seller" | "both",
+    }).catch((err) => console.error("Resend error:", err));
+  }
 
   return NextResponse.json({ success: true }, { status: 201 });
 }
