@@ -121,17 +121,10 @@ export async function sendWaitlistConfirmation({
               </tr>
             </table>
 
-            <!-- CTA -->
-            <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin-top:32px;">
-              <tr>
-                <td>
-                  <a href="https://harbours360.com"
-                     style="display:inline-block;background:#0ea5e9;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;padding:13px 32px;border-radius:50px;letter-spacing:0.01em;">
-                    Visit Harbours360.com
-                  </a>
-                </td>
-              </tr>
-            </table>
+            <!-- Closing note -->
+            <p style="margin:28px 0 0;font-size:14px;color:#94a3b8;line-height:1.6;">
+              We will reach out closer to launch with your early access details.
+            </p>
           </td>
         </tr>
       </table>
