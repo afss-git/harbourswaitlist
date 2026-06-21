@@ -9,12 +9,12 @@ export default function Footer() {
           {/* Brand */}
           <div className="flex flex-col gap-3 max-w-sm">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl overflow-hidden bg-[#0f2a44] flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 rounded-xl overflow-hidden bg-white flex items-center justify-center flex-shrink-0 shadow-sm">
                 <Image
                   src="/logo-icon.png"
                   alt="Harbours360"
-                  width={28}
-                  height={28}
+                  width={30}
+                  height={30}
                   className="object-contain"
                 />
               </div>

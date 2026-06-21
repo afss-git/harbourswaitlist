@@ -1,4 +1,8 @@
+"use client";
+
 import { Check, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import FadeIn from "./fade-in";
 
 const POINTS = [
   "List in minutes, at no cost",
@@ -11,47 +15,69 @@ export default function ForSellers() {
     <section className="bg-[#091b2e] py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
+
           {/* Copy */}
-          <div className="min-w-0">
-            <span className="inline-block text-xs font-semibold text-[#0ea5e9] uppercase tracking-widest mb-3">
-              For Sellers
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white leading-tight">
-              Reach verified buyers across Africa
-            </h2>
-            <p className="mt-4 text-lg text-[#94a3b8] leading-relaxed">
-              List your vessels and equipment once, and present them to a qualified,
-              pan-African audience of verified buyers.
-            </p>
+          <FadeIn direction="left">
+            <div className="min-w-0">
+              <span className="inline-block text-xs font-semibold text-[#0ea5e9] uppercase tracking-widest mb-3">
+                For Sellers
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white leading-tight">
+                Reach verified buyers across Africa
+              </h2>
+              <p className="mt-4 text-lg text-[#94a3b8] leading-relaxed">
+                List your vessels and equipment once, and present them to a qualified,
+                pan-African audience of verified buyers.
+              </p>
 
-            <ul className="mt-8 space-y-4">
-              {POINTS.map((point) => (
-                <li key={point} className="flex items-start gap-3">
-                  <span className="w-6 h-6 rounded-full bg-[#0ea5e9]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Check className="w-3.5 h-3.5 text-[#0ea5e9]" strokeWidth={3} />
-                  </span>
-                  <span className="text-[#cbd5e1]">{point}</span>
-                </li>
-              ))}
-            </ul>
+              <ul className="mt-8 space-y-4">
+                {POINTS.map((point) => (
+                  <li key={point} className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-[#0ea5e9]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check className="w-3.5 h-3.5 text-[#0ea5e9]" strokeWidth={3} />
+                    </span>
+                    <span className="text-[#cbd5e1]">{point}</span>
+                  </li>
+                ))}
+              </ul>
 
-            <p className="mt-7 text-sm text-[#64748b] leading-relaxed border-l-2 border-[#0ea5e9]/40 pl-4">
-              Sellers who join the waitlist early will receive featured placement
-              for their first listing when the platform opens.
-            </p>
+              <p className="mt-7 text-sm text-[#64748b] leading-relaxed border-l-2 border-[#0ea5e9]/40 pl-4">
+                Sellers who join the waitlist early will receive featured placement
+                for their first listing when the platform opens.
+              </p>
 
-            <a href="#waitlist-form" className="mt-8 inline-flex items-center gap-2 text-[#0ea5e9] font-semibold hover:gap-3 transition-all">
-              Join as a seller <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
+              <a href="#waitlist-form" className="mt-8 inline-flex items-center gap-2 text-[#0ea5e9] font-semibold hover:gap-3 transition-all">
+                Join as a seller <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </FadeIn>
 
-          {/* Real seller dashboard, slightly tilted */}
-          <div className="relative min-w-0" style={{ perspective: "1800px" }}>
-            <div className="absolute -inset-8 bg-gradient-to-tr from-[#0ea5e9]/12 to-transparent rounded-3xl blur-3xl" />
-            <div
-              className="relative rounded-xl overflow-hidden ring-1 ring-white/10 shadow-2xl shadow-black/50"
-              style={{ transform: "rotateY(-13deg) rotateX(4deg) rotate(1deg)" }}
+          {/* Real seller dashboard, 3D tilted with scroll entrance */}
+          <div className="relative min-w-0" style={{ perspective: "1600px" }}>
+            {/* Ambient glow */}
+            <div className="absolute -inset-8 bg-gradient-to-tr from-[#0ea5e9]/15 to-transparent rounded-3xl blur-3xl pointer-events-none" />
+
+            <motion.div
+              className="relative rounded-xl overflow-hidden"
+              initial={{ opacity: 0, x: 80, rotateY: -40, rotateX: 8, rotate: 1 }}
+              whileInView={{ opacity: 1, x: 0, rotateY: -13, rotateX: 4, rotate: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1.0, ease: [0.25, 0.46, 0.45, 0.94] }}
+              style={{
+                boxShadow: [
+                  "0 30px 70px rgba(0,0,0,0.7)",
+                  "6px 12px 0 rgba(14,165,233,0.14)",
+                  "12px 22px 0 rgba(14,165,233,0.06)",
+                  "inset 0 1px 0 rgba(255,255,255,0.14)",
+                  "inset -2px 0 0 rgba(0,0,0,0.3)",
+                ].join(", "),
+              }}
             >
+              {/* Top-edge screen shine */}
+              <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none z-10" />
+              {/* Left-edge depth highlight */}
+              <div className="absolute inset-y-0 left-0 w-px bg-gradient-to-b from-white/20 via-white/10 to-transparent pointer-events-none z-10" />
+
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/product/seller-listings.png"
@@ -59,8 +85,9 @@ export default function ForSellers() {
                 className="block w-full h-auto"
                 loading="lazy"
               />
-            </div>
+            </motion.div>
           </div>
+
         </div>
       </div>
     </section>
