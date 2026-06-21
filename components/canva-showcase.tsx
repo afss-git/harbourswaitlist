@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function CanvaShowcase() {
   return (
-    <section className="bg-[#09254B] py-24 overflow-hidden">
+    <section className="bg-[#09254B] py-14 sm:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         <motion.div

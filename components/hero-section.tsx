@@ -13,7 +13,7 @@ const VALUE_POINTS = [
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-[#0f2a44] pt-28 pb-20 lg:pt-32 lg:pb-28">
+    <section className="relative overflow-hidden bg-[#0f2a44] pt-24 pb-14 lg:pt-32 lg:pb-28">
       <div
         className="absolute inset-0"
         style={{
@@ -22,35 +22,35 @@ export default function HeroSection() {
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-16 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
-          {/* LEFT: copy + form */}
+          {/* LEFT: copy + mobile countdown + form */}
           <motion.div
             className="min-w-0"
-            initial={{ opacity: 0, y: 35 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, ease: "easeOut" }}
           >
-            <div className="inline-flex items-center gap-2 border border-white/15 bg-white/5 text-[#cbd5e1] text-xs font-medium px-3.5 py-1.5 rounded-full mb-6 tracking-wide">
+            <div className="inline-flex items-center gap-2 border border-white/15 bg-white/5 text-[#cbd5e1] text-xs font-medium px-3 py-1.5 rounded-full mb-5 tracking-wide">
               <span className="w-1.5 h-1.5 bg-[#0ea5e9] rounded-full" />
               Launching 1 July 2026
             </div>
 
-            <h1 className="text-[2.2rem] sm:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.1] tracking-tight">
+            <h1 className="text-[1.85rem] sm:text-4xl lg:text-[3.5rem] font-bold text-white leading-[1.12] tracking-tight">
               Africa&apos;s marketplace for maritime and industrial assets.
             </h1>
 
-            <p className="mt-6 text-lg text-[#94a3b8] max-w-xl leading-relaxed">
+            <p className="mt-4 sm:mt-6 text-base sm:text-lg text-[#94a3b8] max-w-xl leading-relaxed">
               Harbours360 brings buyers and sellers of vessels, offshore equipment,
               and port machinery onto one verified platform, with payments protected
               from offer to delivery.
             </p>
 
-            <ul className="mt-7 space-y-2.5">
+            <ul className="mt-5 sm:mt-7 space-y-2">
               {VALUE_POINTS.map((point) => (
                 <li key={point} className="flex items-center gap-3 text-sm text-[#cbd5e1]">
-                  <span className="w-5 h-5 rounded-full bg-[#0ea5e9]/15 flex items-center justify-center flex-shrink-0">
+                  <span className="w-5 h-5 rounded-full bg-[#0ea5e9]/15 flex items-center justify-center shrink-0">
                     <Check className="w-3 h-3 text-[#0ea5e9]" strokeWidth={3} />
                   </span>
                   {point}
@@ -58,15 +58,23 @@ export default function HeroSection() {
               ))}
             </ul>
 
-            <div className="mt-9 max-w-xl">
+            {/* Countdown — mobile only, shown between bullets and form */}
+            <div className="mt-8 lg:hidden">
+              <p className="text-[10px] font-semibold text-[#64748b] uppercase tracking-[0.22em] mb-4 text-center">
+                Doors open in
+              </p>
+              <CountdownTimer />
+            </div>
+
+            <div className="mt-7 sm:mt-9 max-w-xl">
               <WaitlistForm />
             </div>
           </motion.div>
 
-          {/* RIGHT: countdown — given its own column, clean and prominent */}
+          {/* RIGHT: countdown — desktop only */}
           <motion.div
-            className="flex flex-col items-center justify-center min-w-0 py-8 lg:py-0"
-            initial={{ opacity: 0, y: 35 }}
+            className="hidden lg:flex flex-col items-center justify-center min-w-0"
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, ease: "easeOut", delay: 0.18 }}
           >

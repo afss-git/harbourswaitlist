@@ -33,20 +33,20 @@ export default function SecondCta() {
   }
 
   return (
-    <section className="bg-[#091b2e] py-24">
-      <div className="max-w-2xl mx-auto px-6 text-center">
-        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
+    <section className="bg-[#091b2e] py-16 sm:py-24">
+      <div className="max-w-2xl mx-auto px-5 sm:px-6 text-center">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4 leading-tight">
           Be ready for launch
         </h2>
-        <p className="text-lg text-[#94a3b8] mb-10 leading-relaxed">
+        <p className="text-base sm:text-lg text-[#94a3b8] mb-8 sm:mb-10 leading-relaxed">
           Join the waitlist and we will notify you the moment Harbours360 opens on
           1 July 2026.
         </p>
 
         {done ? (
           <div className="flex flex-col items-center gap-3">
-            <CheckCircle className="w-11 h-11 text-[#10b981]" />
-            <p className="font-semibold text-lg text-white">You are on the waitlist.</p>
+            <CheckCircle className="w-10 h-10 sm:w-11 sm:h-11 text-[#10b981]" />
+            <p className="font-semibold text-base sm:text-lg text-white">You are on the waitlist.</p>
             <p className="text-sm text-[#94a3b8]">Please check your inbox for a confirmation email.</p>
           </div>
         ) : (
@@ -57,12 +57,12 @@ export default function SecondCta() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@company.com"
-              className="flex-1 border border-white/15 bg-white/5 rounded-xl px-5 py-4 text-sm text-white placeholder:text-[#64748b] focus:outline-none focus:border-[#0ea5e9] focus:ring-2 focus:ring-[#0ea5e9]/20"
+              className="flex-1 border border-white/15 bg-white/5 rounded-xl px-4 sm:px-5 py-3.5 sm:py-4 text-sm text-white placeholder:text-[#64748b] focus:outline-none focus:border-[#0ea5e9] focus:ring-2 focus:ring-[#0ea5e9]/20"
             />
             <button
               type="submit"
               disabled={loading}
-              className="bg-[#0ea5e9] hover:bg-[#0284c7] text-white font-semibold text-sm px-8 py-4 rounded-xl transition-colors duration-200 flex items-center gap-2 justify-center whitespace-nowrap disabled:opacity-60"
+              className="bg-[#0ea5e9] hover:bg-[#0284c7] text-white font-semibold text-sm px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl transition-colors duration-200 flex items-center gap-2 justify-center whitespace-nowrap disabled:opacity-60"
             >
               {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Join the waitlist"}
             </button>

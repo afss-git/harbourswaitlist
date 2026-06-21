@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function DeviceShowcase() {
   return (
-    <section className="bg-[#0C243B] pb-24 pt-6 overflow-hidden">
+    <section className="bg-[#0C243B] pb-16 sm:pb-24 pt-4 sm:pt-6 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
         <motion.div
